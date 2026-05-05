@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Slovenčina - cvičenia",
   description: "Interaktívne cvičenia: podstatné mená, pády, rod a číslo.",
+  other: {
+    google: "notranslate",
+  },
 };
 
 export default function RootLayout({
@@ -25,6 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="sk"
+      translate="no"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
