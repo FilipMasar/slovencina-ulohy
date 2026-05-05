@@ -37,6 +37,12 @@ const exercises: Exercise[] = [
     description: "Rozhodni, či je zvýraznená číslovka základná alebo radová.",
     color: "bg-violet-100/80 border-violet-300 hover:border-violet-400",
   },
+  {
+    href: "/zamena",
+    title: "Osobné zámená: základné a privlastňovacie",
+    description: "Rozhodni, či je zvýraznené zámeno osobné základné alebo privlastňovacie.",
+    color: "bg-rose-100/80 border-rose-300 hover:border-rose-400",
+  },
 ];
 
 function trimTrailingSlash(url: string) {
