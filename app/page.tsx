@@ -31,6 +31,12 @@ const exercises: Exercise[] = [
     description: "Vyber správny rod, číslo a pád zvýrazneného slova.",
     color: "bg-sky-100/80 border-sky-300 hover:border-sky-400",
   },
+  {
+    href: "/cislovky",
+    title: "Číslovky: základné a radové",
+    description: "Rozhodni, či je zvýraznená číslovka základná alebo radová.",
+    color: "bg-violet-100/80 border-violet-300 hover:border-violet-400",
+  },
 ];
 
 function trimTrailingSlash(url: string) {
@@ -90,7 +96,7 @@ export default function Home() {
           Vyber si cvičenie a poďme trénovať. Každý krok sa počíta.
         </p>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {exercises.map((exercise) => (
             <Link
               key={exercise.href}
