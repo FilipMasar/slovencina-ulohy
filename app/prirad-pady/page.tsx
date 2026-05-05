@@ -11,7 +11,7 @@ const NUM_PADS = 6;
 const NUM_SETS = 1;
 const TOTAL_WORDS = NUM_SETS * 3 * NUM_PADS;
 const PRAISE_MESSAGES = ["Paráda!", "Skvelá práca!", "Výborne!", "Perfektne!", "Len tak ďalej!"];
-const TRY_AGAIN_MESSAGES = ["Skús to ešte raz.", "Nevadí, pokračuj ďalej.", "O chvíľu to bude úplne presné."];
+const TRY_AGAIN_MESSAGES = ["Nevadí, pokračujeme.", "Ideme ďalej.", "Nabudúce to vyjde."];
 
 type Round = {
   baseWord: string;

@@ -7,7 +7,7 @@ import { shuffleArray } from "@/src/lib/shuffle";
 
 const NUM_SENTENCES = 5;
 const PRAISE_MESSAGES = ["Super práca!", "Perfektne!", "Skvelé!", "Výborne!", "Len tak ďalej!"];
-const TRY_AGAIN_MESSAGES = ["Skús to ešte raz.", "Nevadí, ideš ďalej.", "Poďme na ďalšie slovo."];
+const TRY_AGAIN_MESSAGES = ["Nevadí, pokračujeme.", "Ideme ďalej.", "Nabudúce to vyjde."];
 
 type Sentence = (typeof DATA_PODSTATNE_MENA)[number];
 type FeedbackTone = "" | "good" | "bad" | "complete";

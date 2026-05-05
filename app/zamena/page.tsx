@@ -9,7 +9,7 @@ const druhy = ["základné", "privlastňovacie"] as const;
 
 const NUM_QUESTIONS = 8;
 const PRAISE_MESSAGES = ["Super!", "Skvelá práca!", "Výborne!", "Perfektne!", "Len tak ďalej!"];
-const TRY_AGAIN_MESSAGES = ["Skús to ešte raz.", "Nevadí, poďme ďalej.", "Ďalšia úloha sa určite podarí."];
+const TRY_AGAIN_MESSAGES = ["Nevadí, pokračujeme.", "Ideme ďalej.", "Nabudúce to vyjde."];
 
 type Question = (typeof DATA_ZAMENA)[number];
 type Druh = (typeof druhy)[number];
@@ -116,7 +116,7 @@ export default function ZamenaPage() {
     } else {
       const word = currentQuestion.sentence.match(/<(.+?)>/)?.[1] ?? "slovo";
       setMistakes((prev) => [...prev, { word, yours: selected, correct: currentQuestion.answer }]);
-      setFeedback(`Skús ešte raz. ${pickRandomMessage(TRY_AGAIN_MESSAGES)}`);
+      setFeedback(`Nesprávne. Správna odpoveď: ${currentQuestion.answer}. ${pickRandomMessage(TRY_AGAIN_MESSAGES)}`);
       setFeedbackTone("bad");
     }
 

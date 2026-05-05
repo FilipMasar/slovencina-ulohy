@@ -11,7 +11,7 @@ const pady = ["nominatív", "genitív", "datív", "akuzatív", "lokál", "inštr
 
 const NUM_QUESTIONS = 5;
 const PRAISE_MESSAGES = ["Super!", "Skvelá práca!", "Výborne!", "Perfektne!", "Len tak ďalej!"];
-const TRY_AGAIN_MESSAGES = ["Skús to ešte raz.", "Nevadí, poďme ďalej.", "Ďalšia úloha sa určite podarí."];
+const TRY_AGAIN_MESSAGES = ["Nevadí, pokračujeme.", "Ideme ďalej.", "Nabudúce to vyjde."];
 
 type Question = (typeof DATA_ROD_CISLO_PAD)[number];
 type FeedbackTone = "" | "good" | "bad";
@@ -148,7 +148,7 @@ export default function RodCisloPadPage() {
       }
 
       setMistakes((prev) => [...prev, { word, details: detail }]);
-      setFeedback(`Skús ešte raz - chyba: ${detail.map((d) => d.cat).join(", ")}. ${pickRandomMessage(TRY_AGAIN_MESSAGES)}`);
+      setFeedback(`Nesprávne — chyba: ${detail.map((d) => d.cat).join(", ")}. ${pickRandomMessage(TRY_AGAIN_MESSAGES)}`);
       setFeedbackTone("bad");
     }
 
