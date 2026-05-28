@@ -43,6 +43,24 @@ const exercises: Exercise[] = [
     description: "Rozhodni, či je zvýraznené zámeno osobné základné alebo privlastňovacie.",
     color: "bg-rose-100/80 border-rose-300 hover:border-rose-400",
   },
+  {
+    href: "/najdi-slovesa",
+    title: "Nájdi slovesá",
+    description: "Klikni na slová, ktoré sú slovesá.",
+    color: "bg-teal-100/80 border-teal-300 hover:border-teal-400",
+  },
+  {
+    href: "/sloveso-kategorie",
+    title: "Sloveso: osoba, číslo a čas",
+    description: "Urči osobu, číslo a čas zvýrazneného slovesa vo vete.",
+    color: "bg-indigo-100/80 border-indigo-300 hover:border-indigo-400",
+  },
+  {
+    href: "/casovanie-slovies",
+    title: "Časovanie slovies",
+    description: "Vyber správny tvar slovesa v danej osobe, čísle a čase.",
+    color: "bg-fuchsia-100/80 border-fuchsia-300 hover:border-fuchsia-400",
+  },
 ];
 
 function trimTrailingSlash(url: string) {

@@ -1,0 +1,28 @@
+export const DATA_SLOVESO_KATEGORIE = [
+  { sentence: "Ja <čítam> zaujímavú knihu.", answer: { osoba: 1, cislo: "jednotné", cas: "prítomný" } },
+  { sentence: "Ty <píšeš> domácu úlohu.", answer: { osoba: 2, cislo: "jednotné", cas: "prítomný" } },
+  { sentence: "Mama <varí> dobrý obed.", answer: { osoba: 3, cislo: "jednotné", cas: "prítomný" } },
+  { sentence: "My <spievame> veselú pieseň.", answer: { osoba: 1, cislo: "množné", cas: "prítomný" } },
+  { sentence: "Vy <počúvate> peknú hudbu.", answer: { osoba: 2, cislo: "množné", cas: "prítomný" } },
+  { sentence: "Deti <behajú> po dvore.", answer: { osoba: 3, cislo: "množné", cas: "prítomný" } },
+  { sentence: "Ty <plávaš> v bazéne.", answer: { osoba: 2, cislo: "jednotné", cas: "prítomný" } },
+  { sentence: "Brat <kreslí> veľký obraz.", answer: { osoba: 3, cislo: "jednotné", cas: "prítomný" } },
+  { sentence: "Žiaci <kreslia> slniečko.", answer: { osoba: 3, cislo: "množné", cas: "prítomný" } },
+
+  { sentence: "Ja som <maľoval> plot.", answer: { osoba: 1, cislo: "jednotné", cas: "minulý" } },
+  { sentence: "Ty si <pomohol> mame.", answer: { osoba: 2, cislo: "jednotné", cas: "minulý" } },
+  { sentence: "Dedko <oddychoval> v kresle.", answer: { osoba: 3, cislo: "jednotné", cas: "minulý" } },
+  { sentence: "Sestra <spievala> pesničku.", answer: { osoba: 3, cislo: "jednotné", cas: "minulý" } },
+  { sentence: "My sme <vyhrali> zápas.", answer: { osoba: 1, cislo: "množné", cas: "minulý" } },
+  { sentence: "Vy ste <upratali> izbu.", answer: { osoba: 2, cislo: "množné", cas: "minulý" } },
+  { sentence: "Žiaci <písali> diktát.", answer: { osoba: 3, cislo: "množné", cas: "minulý" } },
+  { sentence: "My sme <bežali> domov.", answer: { osoba: 1, cislo: "množné", cas: "minulý" } },
+
+  { sentence: "Ja <budem kresliť> dom.", answer: { osoba: 1, cislo: "jednotné", cas: "budúci" } },
+  { sentence: "Ty <budeš čítať> rozprávku.", answer: { osoba: 2, cislo: "jednotné", cas: "budúci" } },
+  { sentence: "Brat <bude hrať> futbal.", answer: { osoba: 3, cislo: "jednotné", cas: "budúci" } },
+  { sentence: "My <budeme variť> guláš.", answer: { osoba: 1, cislo: "množné", cas: "budúci" } },
+  { sentence: "Vy <budete tancovať> na plese.", answer: { osoba: 2, cislo: "množné", cas: "budúci" } },
+  { sentence: "Kamaráti <budú stavať> hrad.", answer: { osoba: 3, cislo: "množné", cas: "budúci" } },
+  { sentence: "Zajtra <pôjdem> k babke.", answer: { osoba: 1, cislo: "jednotné", cas: "budúci" } },
+];
