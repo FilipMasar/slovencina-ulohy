@@ -133,7 +133,7 @@ export default function NasobilkaPage() {
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-10 px-4 py-8">
         <div className="rounded-3xl bg-white/95 px-12 py-6 shadow-sm">
           <p className="text-7xl font-black tracking-tight text-orange-600 sm:text-8xl">
-            {problem.a} · {problem.b}
+            {problem.a} × {problem.b}
           </p>
         </div>
 
