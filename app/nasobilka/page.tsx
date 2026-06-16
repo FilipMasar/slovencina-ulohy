@@ -3,15 +3,19 @@
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/src/lib/cn";
 
-// --- Positions: rotating classroom-safe pairs (left pose, right pose) ---
+// --- Positions: classroom-safe poses; two distinct ones are picked each round ---
 type Pose = { emoji: string; label: string };
 type PosePair = { left: Pose; right: Pose };
 
-const POSE_PAIRS: PosePair[] = [
-  { left: { emoji: "🧘", label: "Sadni si" }, right: { emoji: "🧍", label: "Postav sa" } },
-  { left: { emoji: "🧎", label: "Čupni si" }, right: { emoji: "🧍", label: "Postav sa" } },
-  { left: { emoji: "🙆", label: "Ruky hore" }, right: { emoji: "🙇", label: "Predkloň sa" } },
-  { left: { emoji: "🙋", label: "Ruka hore" }, right: { emoji: "🧍", label: "Stoj rovno" } },
+const POSES: Pose[] = [
+  { emoji: "🧍", label: "Postav sa" },
+  { emoji: "🧘", label: "Sadni si" },
+  { emoji: "🧎", label: "Čupni si" },
+  { emoji: "🙆", label: "Ruky hore" },
+  { emoji: "🙇", label: "Predkloň sa" },
+  { emoji: "🙋", label: "Ruka hore" },
+  { emoji: "🙅", label: "Ruky prekríž" },
+  { emoji: "🤸", label: "Vyskoč" },
 ];
 
 const MIN_FACTOR = 2;
@@ -23,6 +27,14 @@ function randInt(min: number, max: number) {
 
 function pickFrom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Pick two distinct items at random, returned as [left, right].
+function pickTwoDistinct<T>(arr: T[]): [T, T] {
+  const i = Math.floor(Math.random() * arr.length);
+  let j = Math.floor(Math.random() * (arr.length - 1));
+  if (j >= i) j += 1;
+  return [arr[i], arr[j]];
 }
 
 // Build a plausible wrong distractor from common multiplication mistakes.
@@ -59,7 +71,8 @@ function makeProblem(): Problem {
   const product = a * b;
   const distractor = makeDistractor(a, b, product);
   const correctSide: "left" | "right" = Math.random() < 0.5 ? "left" : "right";
-  const posePair = pickFrom(POSE_PAIRS);
+  const [left, right] = pickTwoDistinct(POSES);
+  const posePair: PosePair = { left, right };
   return { a, b, product, distractor, correctSide, posePair };
 }
 
