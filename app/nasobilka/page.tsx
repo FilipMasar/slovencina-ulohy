@@ -90,9 +90,22 @@ function makeProblem(): Problem {
 
 type Phase = "asking" | "revealed";
 
+// Auto-mode timing per phase (ms): time to take a position, then to see the answer.
+type Speed = "slow" | "normal" | "fast";
+
+const SPEEDS: Record<Speed, { label: string; ask: number; reveal: number }> = {
+  slow: { label: "Pomaly", ask: 8000, reveal: 4000 },
+  normal: { label: "Stredne", ask: 6000, reveal: 3000 },
+  fast: { label: "Rýchlo", ask: 4000, reveal: 2000 },
+};
+
+const SPEED_ORDER: Speed[] = ["slow", "normal", "fast"];
+
 export default function NasobilkaPage() {
   const [problem, setProblem] = useState<Problem | null>(null);
   const [phase, setPhase] = useState<Phase>("asking");
+  const [auto, setAuto] = useState(false);
+  const [speed, setSpeed] = useState<Speed>("normal");
 
   useEffect(() => {
     setProblem(makeProblem());
@@ -105,6 +118,14 @@ export default function NasobilkaPage() {
       return "asking";
     });
   }, []);
+
+  // Auto-mode: reveal after the "ask" delay, then advance after the "reveal" delay.
+  useEffect(() => {
+    if (!auto || !problem) return;
+    const ms = phase === "asking" ? SPEEDS[speed].ask : SPEEDS[speed].reveal;
+    const timer = setTimeout(advance, ms);
+    return () => clearTimeout(timer);
+  }, [auto, phase, speed, problem, advance]);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -150,11 +171,61 @@ export default function NasobilkaPage() {
     );
   };
 
+  const phaseMs = revealed ? SPEEDS[speed].reveal : SPEEDS[speed].ask;
+
   return (
     <div
       className="flex min-h-screen cursor-pointer select-none flex-col bg-gradient-to-b from-amber-100 to-orange-50 font-sans text-slate-800"
       onClick={advance}
     >
+      <div className="h-2 w-full bg-orange-200/40">
+        {auto && !revealed && (
+          <div
+            key={phase}
+            className="h-full origin-left bg-orange-500"
+            style={{ animation: `nasobilka-progress ${phaseMs}ms linear forwards` }}
+          />
+        )}
+      </div>
+
+      <div
+        className="flex flex-wrap items-center justify-end gap-2 px-4 pt-3 sm:px-6"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={() => setAuto((a) => !a)}
+          className={cn(
+            "min-h-11 rounded-xl border-2 px-4 py-2 text-base font-bold transition",
+            auto
+              ? "border-emerald-500 bg-emerald-500 text-white"
+              : "border-orange-300 bg-white text-orange-600 hover:border-orange-400",
+          )}
+        >
+          {auto ? "⏸ Auto: zap." : "▶ Auto: vyp."}
+        </button>
+
+        {auto && (
+        <div className="flex gap-1.5">
+          {SPEED_ORDER.map((s) => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => setSpeed(s)}
+              className={cn(
+                "min-h-11 rounded-xl border-2 px-3 py-2 text-base font-semibold transition",
+                speed === s
+                  ? "border-orange-500 bg-orange-100 text-orange-700"
+                  : "border-orange-200 bg-white text-slate-500 hover:border-orange-300",
+              )}
+            >
+              {SPEEDS[s].label}
+            </button>
+          ))}
+        </div>
+        )}
+      </div>
+
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-10 px-4 py-8">
         <div className="rounded-3xl bg-white/95 px-12 py-6 shadow-sm">
           <p className="text-7xl font-black tracking-tight text-orange-600 sm:text-8xl">
@@ -166,10 +237,6 @@ export default function NasobilkaPage() {
           {panel("left", problem.posePair.left, leftValue)}
           {panel("right", problem.posePair.right, rightValue)}
         </div>
-
-        <p className="min-h-8 text-center text-lg font-semibold text-orange-700/70 sm:text-xl">
-          {revealed ? "Ďalej →" : "Klikni alebo stlač medzerník"}
-        </p>
       </main>
     </div>
   );
