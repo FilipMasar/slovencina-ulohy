@@ -61,6 +61,12 @@ const exercises: Exercise[] = [
     description: "Vyber správny tvar slovesa v danej osobe, čísle a čase.",
     color: "bg-fuchsia-100/80 border-fuchsia-300 hover:border-fuchsia-400",
   },
+  {
+    href: "/nasobilka",
+    title: "Malá násobilka — pohybom",
+    description: "Ukáž odpoveď pohybom: sadni si alebo sa postav podľa správnej strany.",
+    color: "bg-orange-100/80 border-orange-300 hover:border-orange-400",
+  },
 ];
 
 function trimTrailingSlash(url: string) {
