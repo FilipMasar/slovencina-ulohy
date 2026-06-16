@@ -8,15 +8,10 @@ type Pose = { emoji: string; label: string };
 type PosePair = { left: Pose; right: Pose };
 
 const POSES: Pose[] = [
-  { emoji: "🏃", label: "Bež na mieste" },
-  { emoji: "🚶", label: "Kráčaj na mieste" },
-  { emoji: "🕺", label: "Zatancuj si" },
-  { emoji: "👏", label: "Zatlieskaj" },
   { emoji: "🙌", label: "Vystri ruky hore" },
   { emoji: "💪", label: "Napni svaly" },
   { emoji: "🤷", label: "Pokrč ramenami" },
   { emoji: "👋", label: "Zamávaj" },
-  { emoji: "🦶", label: "Dupni nohou" },
   { emoji: "✌️", label: "Ukáž víťazstvo" },
   { emoji: "🧍", label: "Postav sa" },
   { emoji: "🧘", label: "Sadni si" },
@@ -25,7 +20,6 @@ const POSES: Pose[] = [
   { emoji: "🙇", label: "Predkloň sa" },
   { emoji: "🙋", label: "Ruka hore" },
   { emoji: "🙅", label: "Ruky prekríž" },
-  { emoji: "🤸", label: "Vyskoč" },
 ];
 
 const MIN_FACTOR = 2;
