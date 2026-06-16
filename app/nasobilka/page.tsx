@@ -8,6 +8,15 @@ type Pose = { emoji: string; label: string };
 type PosePair = { left: Pose; right: Pose };
 
 const POSES: Pose[] = [
+  { emoji: "🏄", label: "Surferská póza" },
+  { emoji: "🦩", label: "Stoj na jednej nohe" },
+  { emoji: "🦸", label: "Superhrdina" },
+  { emoji: "⭐", label: "Hviezda" },
+  { emoji: "🩰", label: "Stoj na špičkách" },
+  { emoji: "🙏", label: "Ruky spolu" },
+  { emoji: "🥋", label: "Bojovník" },
+  { emoji: "🤖", label: "Robot" },
+  { emoji: "🐢", label: "Korytnačka" },
   { emoji: "🙌", label: "Vystri ruky hore" },
   { emoji: "💪", label: "Napni svaly" },
   { emoji: "🤷", label: "Pokrč ramenami" },
