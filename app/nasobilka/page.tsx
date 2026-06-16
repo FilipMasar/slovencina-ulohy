@@ -12,7 +12,6 @@ const POSES: Pose[] = [
   { emoji: "💪", label: "Napni svaly" },
   { emoji: "🤷", label: "Pokrč ramenami" },
   { emoji: "👋", label: "Zamávaj" },
-  { emoji: "✌️", label: "Prihlás sa" },
   { emoji: "🧍", label: "Postav sa" },
   { emoji: "🧘", label: "Sadni si" },
   { emoji: "🧎", label: "Čupni si" },
